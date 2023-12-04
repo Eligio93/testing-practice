@@ -1,4 +1,4 @@
-const {capitalize,reverseString,calculator}=require("./index.js")
+const {capitalize,reverseString,calculator,caesarChiper}=require("./index.js")
 
 
 test('capitalize first Character', () => {
@@ -19,4 +19,6 @@ test('calculator divide',()=>{
 test('calculator multiply',()=>{
   expect(calculator.multiply(2,2)).toBe(4);
 })
-
+test('caesar chiper',()=>{
+  expect(caesarChiper('The Odin Project 23!!!',15)).toBe("IWT DSXC EGDYTRI 23!!!")
+})
