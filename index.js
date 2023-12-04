@@ -23,4 +23,30 @@ let calculator={
     return n1*n2;
   }
 }
+function caesarChiper(string, shift){
+  let plainAlphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  //build encrypted alphabet depending on shift factor
+  function buildAlphabet(alphabet){
+    let newAlphabet=[];
+    let cont=0;
+    while(cont<=25){
+      newAlphabet.push(alphabet[0+shift]);
+      alphabet.push(alphabet.shift());
+      cont++
+    }
+    return newAlphabet    
+  }
+
+  function findIndexes(string){
+    let indexes=[];
+    for(let i=0;i<string.length-1;i++){
+      
+    }
+
+  }
+  
+  return buildAlphabet(plainAlphabet);
+}
+
+console.log(caesarChiper('',15))
 module.exports={capitalize,reverseString,calculator};
