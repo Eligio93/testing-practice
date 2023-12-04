@@ -39,14 +39,27 @@ function caesarChiper(string, shift){
 
   function findIndexes(string){
     let indexes=[];
-    for(let i=0;i<string.length-1;i++){
-      
+    for(let i=0;i<string.length;i++){
+      indexes.push(plainAlphabet.indexOf(string[i]))
     }
-
+    return indexes
   }
+ 
+  let chiperAlphabet=buildAlphabet(plainAlphabet);
+  let indexes=findIndexes(string);
+  let cont=0;
+  let convertedString="";
+  while(cont<indexes.length){
+    let index=indexes[cont];
+    convertedString+=chiperAlphabet[index];
+    cont++
+  }
+  return convertedString
+
   
-  return buildAlphabet(plainAlphabet);
+  
+  return;
 }
 
-console.log(caesarChiper('',15))
+console.log(caesarChiper('ciao',15))
 module.exports={capitalize,reverseString,calculator};
