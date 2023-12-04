@@ -70,6 +70,33 @@ function caesarChiper(string, shift){
   }
   return convertedString.toUpperCase();
 }
+function analyzeArray(array){
+  let object={}
+  function average(array){
+    let avg=0;
+    for(let i=0; i<array.length;i++){
+      avg += array[i]; 
+    }
+    return avg/array.length
+  }
+  function minimum(array){
+    let min=array.reduce(function(acc,val){
+      return Math.min(acc,val)
+    },Infinity)
+    return min
+  }
+  function maximum(array){
+    let max= array.reduce(function(acc,val){
+      return Math.max(acc,val)
+    },-Infinity)
+    return max
+  }
+  object.average=average(array);
+  object.min=minimum(array);
+  object.max=maximum(array);
+  object.length=array.length
+  return object
+  
+}
 
-
-module.exports={capitalize,reverseString,calculator, caesarChiper};
+module.exports={capitalize,reverseString,calculator, caesarChiper, analyzeArray};
