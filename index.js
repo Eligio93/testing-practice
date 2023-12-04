@@ -38,9 +38,17 @@ function caesarChiper(string, shift){
   }
 
   function findIndexes(string){
+    let lowerCaseString=string.toLowerCase();
     let indexes=[];
-    for(let i=0;i<string.length;i++){
-      indexes.push(plainAlphabet.indexOf(string[i]))
+    for(let i=0;i<lowerCaseString.length;i++){
+      //if the character is present in alphabet, add his index in the array
+      if(plainAlphabet.includes(lowerCaseString[i])){
+        indexes.push(plainAlphabet.indexOf(lowerCaseString[i]))
+      }else{
+        //else just copy the character as string
+        indexes.push(String(lowerCaseString[i]))
+      }
+      
     }
     return indexes
   }
@@ -50,16 +58,18 @@ function caesarChiper(string, shift){
   let cont=0;
   let convertedString="";
   while(cont<indexes.length){
+    //if the character in indexes is a number use it as index for the chiperAlphabet
+    if(typeof indexes[cont] !== "string"){
     let index=indexes[cont];
     convertedString+=chiperAlphabet[index];
+  }else{
+    //else just copy the character
+    convertedString+=indexes[cont]
+  }
     cont++
   }
-  return convertedString
-
-  
-  
-  return;
+  return convertedString.toUpperCase();
 }
 
-console.log(caesarChiper('ciao',15))
-module.exports={capitalize,reverseString,calculator};
+
+module.exports={capitalize,reverseString,calculator, caesarChiper};
